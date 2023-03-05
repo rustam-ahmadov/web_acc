@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+</head>
+<body>
+    <h1>SIGN UP</h1>
+
+    <form action="#" th:action="@{/register}" th:object="${registrationRequest}" enctype="multipart/form-data" method="POST">
+
+        <input type="text" th:field="*{username}" placeholder="name" >
+        <br>
+        <input type="text" th:field="*{surname}" placeholder="surname" >
+        <br>
+        <input type="text" th:field="*{email}" placeholder="email" >
+        <br>
+        <input type="password" th:field="*{password}" placeholder="password" >
+        <br>
+        <button type="submit">OK</button>
+    </form>
+
+
+
+    <form action="#" th:action="@{/login}" method="GET">
+        <p>Sign in if u have an account already.</p>
+        <button type="submit">Sign In</button>
+    </form>
+
+</body>
+</html>

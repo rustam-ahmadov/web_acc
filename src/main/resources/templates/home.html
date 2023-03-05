@@ -4,7 +4,43 @@
     <meta charset="UTF-8">
     <title>HomePage</title>
 </head>
-<body>
-  <p th:text = "${name}"></p>
-</body>
+    <body>
+        <h1>HOME PAGE.</h1>
+        <p th:text="Hello + ' ' + ${userDTO.getUsername()}"></p>
+
+        <form action="" th:action="@{/updateUser}" th:object="${userDTO}" method="POST">
+            <label>Name</label>
+            <input type="text" th:field="*{username}" name="username" th:value="${userDTO.username}">
+            <br>
+            <label>Surname</label>
+            <input type="text" th:field="*{surname}" name="surname" th:value="${userDTO.surname}">
+            <br>
+            <label>Email</label>
+            <input type="text" th:field="*{email}" name="email" th:value="${userDTO.email}">
+            <br>
+            <label>Password</label>
+            <input type="password" th:field="*{password}" name="password" placeholder="password">
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+
+        <br>
+        <br>
+        <h3>Image</h3>
+        <img src="" th:src="@{/images}" alt="">
+        <form action="" th:action="@{/uploadImage}" th:object="${imageDTO}" enctype="multipart/form-data" method="POST">
+            <br>
+            <input type="file" name="image" accept="image*">
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+
+
+
+
+        <!--<br>
+        <br>
+        //input type="file" th:field = "*{picture}">
+        <br>-->
+    </body>
 </html>
